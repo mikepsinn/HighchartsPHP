@@ -14,6 +14,14 @@ namespace Ghunti\HighchartsPHP;
 use Ghunti\HighchartsPHP\HighchartOption;
 use Ghunti\HighchartsPHP\HighchartOptionRenderer;
 
+/**
+ * @property mixed plotOptions
+ * @property mixed yAxis
+ * @property mixed chart
+ * @property mixed title
+ * @property mixed xAxis
+ * @property array series
+ */
 class Highchart implements \ArrayAccess
 {
     //The chart type.
