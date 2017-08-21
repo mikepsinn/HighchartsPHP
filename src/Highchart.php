@@ -283,6 +283,13 @@ class Highchart implements \ArrayAccess
         return "Highcharts.setOptions($option);";
     }
 
+    /**
+     * @return array
+     */
+    public function getOptions(){
+        return $this->_options;
+    }
+
     public function __set($offset, $value)
     {
         $this->offsetSet($offset, $value);
