@@ -346,6 +346,12 @@ class Highchart implements \ArrayAccess
         $title = $this->offsetGet('title');
         return $title->offsetGet('text')->getValue();
     }
+
+    private function getRenderToElementId()
+    {
+        $chart = $this->offsetGet('chart');
+        return $chart->offsetGet('renderTo')->getValue();
+    }
     /**
      * Use the themes at https://www.highcharts.com/demo/line-basic/dark-unica
      *
@@ -378,6 +384,7 @@ class Highchart implements \ArrayAccess
     {
         $scripts = $this->printScripts();
         $rendered = $this->render();
+        $id = $this->getRenderToElementId();
         $title = $this->getTitleText();
         $theme = $this->getTheme();
         return "
@@ -388,7 +395,7 @@ class Highchart implements \ArrayAccess
                    $scripts
                 </head>
                 <body>
-                <div id=\"container\"></div>
+                <div id=\"$id\"></div>
                     $theme
                 <script type=\"text/javascript\">
                     window.chart = $rendered;
