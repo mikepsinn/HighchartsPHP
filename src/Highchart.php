@@ -15,12 +15,14 @@ use Ghunti\HighchartsPHP\HighchartOption;
 use Ghunti\HighchartsPHP\HighchartOptionRenderer;
 
 /**
- * @property mixed plotOptions
- * @property mixed yAxis
- * @property mixed chart
- * @property mixed title
- * @property mixed xAxis
+ * @property object plotOptions
+ * @property object yAxis
+ * @property object chart
+ * @property object title
+ * @property object xAxis
  * @property array series
+ * @property object subtitle
+ * @property object tooltip
  */
 class Highchart implements \ArrayAccess
 {
