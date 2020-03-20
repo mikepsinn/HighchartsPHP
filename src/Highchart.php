@@ -324,4 +324,32 @@ class Highchart implements \ArrayAccess
         }
         return $this->_options[$offset];
     }
+
+    public function getTitleText()
+    {
+        $title = $this->offsetGet('title');
+        return $title->offsetGet('text')->getValue();
+    }
+
+    public function getHtml()
+    {
+        $scripts = $this->printScripts();
+        $rendered = $this->render();
+        $title = $this->getTitleText();
+        return "
+            <html>
+                <head>
+                    <title>$title</title>
+                    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+                   $scripts
+                </head>
+                <body>
+                <div id=\"container\"></div>
+                <script type=\"text/javascript\">
+                    window.chart = $rendered;
+                </script>
+                </body>
+            </html>
+        ";
+    }
 }
